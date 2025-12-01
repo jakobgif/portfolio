@@ -34,6 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             {children}
           </ThemeProvider>
+          <Analytics />
+          <SpeedInsights/>
         </body>
       </html>
     </>
