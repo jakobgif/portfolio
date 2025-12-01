@@ -2,6 +2,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+export const metadata = {
+  title: "Jakob Frenzel",
+  description: "Portfolio site of Jakob Frenzel",
+  icons: null,
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
