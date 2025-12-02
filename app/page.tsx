@@ -11,8 +11,19 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { MenuIcon, ChevronUp, Space } from "lucide-react"
 import { useState, useEffect } from "react";
+import { AltiumBadge, HardwareBadge, MixedSignalBadge, NextJsBadge } from '@/components/ui/skill_badges';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -38,8 +49,8 @@ export default function Home() {
         </Button>
       )}
       <Header/>
-      <div className="mx-[10vw] flex flex-col gap-20">
-        <section id="about" className="mt-20 flex flex-col">
+      <div className="mx-[10vw] flex flex-col gap-10">
+        <section id="about" className="mt-30 flex flex-col">
           <div className="flex">
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
             <H1>I am Jakob</H1>
@@ -51,25 +62,23 @@ export default function Home() {
           </P>
         </section>
 
-        <section id="projects">
+        <section id="projects" className="flex flex-col gap-5">
           <H3>Projects</H3>
-          <P className="max-w-[800px]">
-            lorem ipsum
-          </P>
+          <ProjectItem title="This website" description="Hello" url="" badges={[
+            <NextJsBadge/>,
+          ]}/>
+          <ProjectItem title="Hardware" description="Hello" url="" badges={[
+            <AltiumBadge/>,
+            <MixedSignalBadge/>,
+          ]}/>
         </section>
 
         <section id="essays">
           <H3>Essays</H3>
-          <P className="max-w-[800px]">
-            lorem ipsum
-          </P>
         </section>
 
         <section id="contact">
           <H3>Contact</H3>
-          <P className="max-w-[800px]">
-            lorem ipsum
-          </P>
         </section>
       </div>
       <Footer/>
@@ -141,5 +150,49 @@ function Footer(){
       <Blockquote className="text-center">per aspera ad astra</Blockquote>
       <Muted className="text-center">Copyright © 2025</Muted>
     </div>
+  )
+}
+
+interface ProjectItemProps {
+  title: string
+  description: string
+  url: string
+  badges: React.ReactNode[]
+}
+function ProjectItem({ title, description, url, badges }: ProjectItemProps){
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardAction>Learn more</CardAction>
+      </CardHeader>
+
+      <CardContent>
+        <p>{description}</p>
+      </CardContent>
+
+      <CardFooter>
+        <div className="flex gap-2">
+          {badges.map((badge, i) => (
+            <div key={i}>{badge}</div>
+          ))}
+        </div>
+      </CardFooter>
+    </Card>
+
+    /* <Card>
+      <CardHeader>
+        <CardTitle>Card Title</CardTitle>
+        <CardAction>Learn more</CardAction>
+      </CardHeader>
+      <CardContent>
+        <p>Card Content</p>
+      </CardContent>
+      <CardFooter>
+        <div>
+          badges
+        </div>
+      </CardFooter>
+    </Card> */
   )
 }
