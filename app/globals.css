@@ -120,3 +120,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes rainbow {
+  0%, 100% { color: var(--chart-1); }
+  25% { color: var(--chart-2); }
+  50% { color: var(--chart-3); }
+  75% { color: var(--chart-4); }
+}
+
+.text-rainbow {
+  animation: rainbow 5s linear infinite;
+}

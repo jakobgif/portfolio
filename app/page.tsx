@@ -40,7 +40,7 @@ export default function Home() {
       <Header/>
       <div className="mx-[10vw]">
         <section id="about" className="my-50 flex">
-          <H1>Hi,&nbsp;</H1>
+          <H1 className="text-rainbow">Hi,&nbsp;</H1>
           <H1>I am Jakob</H1>
         </section>
 
