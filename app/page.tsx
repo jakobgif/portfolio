@@ -1,5 +1,5 @@
 "use client";
-import { H1, H2, H3, Blockquote,Muted } from '@/components/ui/typography'
+import { H1, H2, H3, P, Blockquote,Muted } from '@/components/ui/typography'
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -38,22 +38,38 @@ export default function Home() {
         </Button>
       )}
       <Header/>
-      <div className="mx-[10vw]">
-        <section id="about" className="my-50 flex">
-          <H1 className="text-rainbow">Hi,&nbsp;</H1>
-          <H1>I am Jakob</H1>
+      <div className="mx-[10vw] flex flex-col gap-20">
+        <section id="about" className="mt-20 flex flex-col">
+          <div className="flex">
+            <H1 className="text-rainbow">Hi,&nbsp;</H1>
+            <H1>I am Jakob</H1>
+          </div>
+          <P className="max-w-[800px]">
+            I'm an Electronics and Embedded Systems Engineer based in Vienna, Austria. My primary focus lies on hardware design and development.
+            In addition to my experience in hardware, I am also highly proficient in firmware and software development.
+            This allows me to work seamlessly across the full scope of embedded systems.
+          </P>
         </section>
 
-        <section id="projects" className="my-50">
+        <section id="projects">
           <H3>Projects</H3>
+          <P className="max-w-[800px]">
+            lorem ipsum
+          </P>
         </section>
 
-        <section id="essays" className="my-50">
+        <section id="essays">
           <H3>Essays</H3>
+          <P className="max-w-[800px]">
+            lorem ipsum
+          </P>
         </section>
 
-        <section id="contact" className="my-50">
+        <section id="contact">
           <H3>Contact</H3>
+          <P className="max-w-[800px]">
+            lorem ipsum
+          </P>
         </section>
       </div>
       <Footer/>
