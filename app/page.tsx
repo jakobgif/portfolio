@@ -1,5 +1,5 @@
 "use client";
-import { H1, H2, H3, P, Blockquote,Muted } from '@/components/ui/typography'
+import { H1, H2, H3, P, Blockquote,Muted, H4, Lead, Large } from '@/components/ui/typography'
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -25,6 +25,9 @@ import { MenuIcon, ChevronUp, Space } from "lucide-react"
 import { useState, useEffect } from "react";
 import { AltiumBadge, MixedSignalBadge, NextJsBadge } from '@/components/ui/skill_badges';
 import Link from "next/link"
+import { FiExternalLink } from 'react-icons/fi';
+import { FaEnvelopeSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import { FaLocationDot, FaSquareInstagram } from 'react-icons/fa6';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -50,7 +53,7 @@ export default function Home() {
         </Button>
       )}
       <Header/>
-      <div className="mx-[10vw] flex flex-col gap-10">
+      <div className="mx-[10vw] flex flex-col gap-5">
         <section id="about" className="mt-30 flex flex-col">
           <div className="flex">
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
@@ -63,23 +66,33 @@ export default function Home() {
           </P>
         </section>
 
-        <section id="projects" className="flex flex-col gap-5">
+        <section id="projects" className="pt-5 flex flex-col gap-5">
           <H3>Projects</H3>
-          <ProjectItem title="This website" description="Hello" url="https://github.com/jakobgif" badges={[
+          <ProjectItem title="This website" description="Lorem ipsum" url="https://github.com/jakobgif" badges={[
             <NextJsBadge/>,
           ]}/>
-          <ProjectItem title="Hardware" description="Hello" url="" badges={[
+          <ProjectItem title="Hardware" description="Lorem ipsum" url="" badges={[
             <AltiumBadge/>,
             <MixedSignalBadge/>,
           ]}/>
         </section>
 
-        <section id="essays">
+        <section id="essays" className="pt-5 flex flex-col gap-5">
           <H3>Essays</H3>
+          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
+          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
+          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
         </section>
 
-        <section id="contact">
-          <H3>Contact</H3>
+        <section id="contact" className="pt-5 flex flex-col gap-5">
+          <H3>Get to know me</H3>
+          <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot /><Large>Vienna, Austria</Large></div>
+          <div className="flex flex-row flex-wrap gap-2">
+            <Link href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={64}/></Link>
+            <Link href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={64}/></Link>
+            <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={64}/></Link>
+            {/* <FaSquareInstagram size={64}/> */}
+          </div>
         </section>
       </div>
       <Footer/>
@@ -147,7 +160,7 @@ function Header(){
 
 function Footer(){
   return (
-    <div className="mx-[10vw] pb-100 flex flex-col gap-4 items-center">
+    <div className="mx-[10vw] pt-20 pb-100 flex flex-col gap-4 items-center">
       <Blockquote className="text-center">per aspera ad astra</Blockquote>
       <Muted className="text-center">Copyright © 2025</Muted>
     </div>
@@ -167,7 +180,7 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
         <CardTitle>{title}</CardTitle>
         <CardAction>
           <Badge variant="outline" asChild>
-            <Link href={url}>Learn more</Link>
+            <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
           </Badge>
         </CardAction>
       </CardHeader>
@@ -177,7 +190,7 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
       </CardContent>
 
       <CardFooter>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {badges.map((badge, i) => (
             <div key={i}>{badge}</div>
           ))}
