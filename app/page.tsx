@@ -59,7 +59,7 @@ export default function Home() {
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
             <H1>I am Jakob</H1>
           </div>
-          <P className="max-w-[800px]">
+          <P className="max-w-[800px] mt-6">
             I'm an Electronics and Embedded Systems Engineer based in Vienna, Austria. My primary focus lies on hardware design and development.
             In addition to my experience in hardware, I am also highly proficient in firmware and software development.
             This allows me to work seamlessly across the full scope of embedded systems.
@@ -77,12 +77,7 @@ export default function Home() {
           ]}/>
         </section>
 
-        <section id="essays" className="pt-5 flex flex-col gap-5">
-          <H3>Essays</H3>
-          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
-          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
-          <Link href="/lorem" prefetch={true}><u><Large>Lorem Ipsum</Large></u></Link>
-        </section>
+        <EssayLinks/>
 
         <section id="contact" className="pt-5 flex flex-col gap-5">
           <H3>Get to know me</H3>
@@ -158,7 +153,7 @@ function Header(){
   )
 }
 
-function Footer(){
+export function Footer(){
   return (
     <div className="mx-[10vw] pt-20 pb-100 flex flex-col gap-4 items-center">
       <Blockquote className="text-center">per aspera ad astra</Blockquote>
@@ -198,4 +193,19 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
       </CardFooter>
     </Card>
   )
+}
+
+import * as lorem from "@/app/essays/content/lorem";
+const essays = [
+  { slug: "lorem", title: lorem.title },
+];
+function EssayLinks() {
+  return (
+    <section id="essays" className="pt-5 flex flex-col gap-5">
+      <H3>Essays</H3>
+      {essays.map((essay) => (
+        <Link key={essay.slug} href={`/essays/${essay.slug}`} prefetch={true}><Button variant="link" className="p-0"><Large>{essay.title}</Large></Button></Link>
+      ))}
+    </section>
+  );
 }
