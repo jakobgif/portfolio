@@ -23,7 +23,8 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { MenuIcon, ChevronUp, Space } from "lucide-react"
 import { useState, useEffect } from "react";
-import { AltiumBadge, HardwareBadge, MixedSignalBadge, NextJsBadge } from '@/components/ui/skill_badges';
+import { AltiumBadge, MixedSignalBadge, NextJsBadge } from '@/components/ui/skill_badges';
+import Link from "next/link"
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -64,7 +65,7 @@ export default function Home() {
 
         <section id="projects" className="flex flex-col gap-5">
           <H3>Projects</H3>
-          <ProjectItem title="This website" description="Hello" url="" badges={[
+          <ProjectItem title="This website" description="Hello" url="https://github.com/jakobgif" badges={[
             <NextJsBadge/>,
           ]}/>
           <ProjectItem title="Hardware" description="Hello" url="" badges={[
@@ -164,7 +165,11 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardAction>Learn more</CardAction>
+        <CardAction>
+          <Badge variant="outline" asChild>
+            <Link href={url}>Learn more</Link>
+          </Badge>
+        </CardAction>
       </CardHeader>
 
       <CardContent>
@@ -179,20 +184,5 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
         </div>
       </CardFooter>
     </Card>
-
-    /* <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardAction>Learn more</CardAction>
-      </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
-      <CardFooter>
-        <div>
-          badges
-        </div>
-      </CardFooter>
-    </Card> */
   )
 }
