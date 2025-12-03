@@ -42,7 +42,7 @@ const H1: React.FC<Props> = ({className, children}) => {
 
   const P: React.FC<Props> = ({className, children}) => {
     return (
-      <p className={`leading-7 [&:not(:first-child)]:mt-6 ${className}`}>
+      <p className={`${className}`}>
        {children}
       </p>
     )
@@ -51,7 +51,7 @@ const H1: React.FC<Props> = ({className, children}) => {
 
   const Blockquote: React.FC<Props> = ({className, children}) => {
     return (
-      <blockquote className={`mt-6 italic ${className}`}>
+      <blockquote className={`italic ${className}`}>
         {children}
       </blockquote>
     )
