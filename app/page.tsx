@@ -83,9 +83,9 @@ export default function Home() {
           <H3>Get to know me</H3>
           <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot /><Large>Vienna, Austria</Large></div>
           <div className="flex flex-row flex-wrap gap-2">
-            <Link href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={64}/></Link>
-            <Link href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={64}/></Link>
-            <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={64}/></Link>
+            <Link href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
+            <Link href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
+            <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={40}/></Link>
             {/* <FaSquareInstagram size={64}/> */}
           </div>
         </section>
