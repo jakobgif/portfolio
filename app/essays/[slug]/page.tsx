@@ -1,4 +1,5 @@
 import { Footer } from "@/app/page";
+import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { H2, H3, P } from "@/components/ui/typography";
@@ -17,10 +18,7 @@ export default async function EssayPage({params,}: {params: Promise<{ slug: stri
 
   return (
     <div>
-      <header className="w-full flex items-center justify-between pl-[10vw] py-4 pr-4 top-0">
-        <H2>Jakob Frenzel</H2>
-        <Link href="/" prefetch={true}><Button variant="ghost">Home</Button></Link>
-      </header>
+      <Header path={essay.title}/>
 
       <div className="mx-[10vw] flex flex-col gap-5 max-w-[600px]">
         <section className="pt-5 flex flex-col">

@@ -28,6 +28,7 @@ import Link from "next/link"
 import { FiExternalLink } from 'react-icons/fi';
 import { FaEnvelopeSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot, FaSquareInstagram } from 'react-icons/fa6';
+import { Header } from '@/components/header';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -45,6 +46,11 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       {showTop && (
@@ -52,7 +58,54 @@ export default function Home() {
           <ChevronUp />
         </Button>
       )}
-      <Header/>
+
+      <Header>
+        {/* Desktop navigation */}
+        <div className="hidden md:flex">
+          <nav className="flex gap-3">
+            <Button variant="ghost" onClick={() => scrollTo("projects")}>
+              Projects
+            </Button>
+            {/*<Button variant="ghost" onClick={() => scrollTo("essays")}>
+              Essays
+            </Button>*/}
+            <Button variant="ghost" onClick={() => scrollTo("contact")}>
+              Contact
+            </Button>
+          </nav>
+        </div>
+
+        {/*different ui for mobile*/}
+        {/* <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <MenuIcon />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="w-auto min-w-[200px] my-6 flex flex-col justify-center items-center gap-4"
+            >
+              <SheetTitle className="sr-only">Scroll to</SheetTitle>
+              <nav className="flex flex-col gap-3">
+                <SheetClose asChild>
+                  <Button variant="ghost" onClick={() => scrollTo("projects")}>
+                    Projects
+                  </Button>
+                </SheetClose>
+                <Button variant="ghost" onClick={() => scrollTo("essays")}>
+                  Essays
+                </Button>
+                <Button variant="ghost" onClick={() => scrollTo("contact")}>
+                  Contact
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div> */}
+      </Header>
+
       <div className="mx-[10vw] flex flex-col gap-5">
         <section id="about" className="mt-30 flex flex-col">
           <div className="flex">
@@ -93,64 +146,6 @@ export default function Home() {
       </div>
       <Footer/>
     </div>
-  )
-}
-
-function Header(){
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <header className="w-full flex items-center justify-between pl-[10vw] py-4 pr-4 top-0">
-      <H2>Jakob Frenzel</H2>
-
-      {/* Desktop navigation */}
-      <div className="hidden md:flex">
-        <nav className="flex gap-3">
-          <Button variant="ghost" onClick={() => scrollTo("projects")}>
-            Projects
-          </Button>
-          <Button variant="ghost" onClick={() => scrollTo("essays")}>
-            Essays
-          </Button>
-          <Button variant="ghost" onClick={() => scrollTo("contact")}>
-            Contact
-          </Button>
-        </nav>
-      </div>
-
-      {/*different ui for mobile*/}
-      {/* <div className="md:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <MenuIcon />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-auto min-w-[200px] my-6 flex flex-col justify-center items-center gap-4"
-          >
-            <SheetTitle className="sr-only">Scroll to</SheetTitle>
-            <nav className="flex flex-col gap-3">
-              <SheetClose asChild>
-                <Button variant="ghost" onClick={() => scrollTo("projects")}>
-                  Projects
-                </Button>
-              </SheetClose>
-              <Button variant="ghost" onClick={() => scrollTo("essays")}>
-                Essays
-              </Button>
-              <Button variant="ghost" onClick={() => scrollTo("contact")}>
-                Contact
-              </Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </div> */}
-    </header>
   )
 }
 
