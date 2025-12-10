@@ -139,7 +139,7 @@ export default function Home() {
           <div className="flex flex-row flex-wrap gap-2">
             <Link href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
             <Link href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
-            <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={40}/></Link>
+            {/* <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={40}/></Link> */}
             {/* <FaSquareInstagram size={64}/> */}
           </div>
         </section>
