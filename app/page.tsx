@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div>
       {showTop && (
-        <Button className="fixed bottom-6 right-6 shadow-lg m-10" variant="ghost" size="icon" onClick={scrollToTop}>
+        <Button className="fixed bottom-6 right-6 shadow-lg md:m-10 m-0" variant="ghost" size="icon" onClick={scrollToTop}>
           <ChevronUp />
         </Button>
       )}
