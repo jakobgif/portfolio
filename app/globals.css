@@ -131,3 +131,7 @@
 .text-rainbow {
   animation: rainbow 5s linear infinite;
 }
+
+html {
+  scrollbar-gutter: stable;
+}
