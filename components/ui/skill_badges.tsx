@@ -4,13 +4,13 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { TbBrandNextjs } from "react-icons/tb";
 
 export function MixedSignalBadge() {
-  return <Badge style={{ backgroundColor: "var(--chart-1)" }} variant="secondary"><MdOutlineDesignServices/>Mixed Signal Design</Badge>
+  return <Badge style={{ backgroundColor: "var(--chart-1)" }} variant="secondary"><MdOutlineDesignServices className="text-white"/><text className="text-white">Mixed Signal Design</text></Badge>
 }
 
 export function AltiumBadge() {
-  return <Badge style={{ backgroundColor: "var(--chart-2)" }} variant="secondary"><SiAltiumdesigner/>Altium Designer</Badge>
+  return <Badge style={{ backgroundColor: "var(--chart-2)" }} variant="secondary"><SiAltiumdesigner className="text-white"/><text className="text-white">Altium Designer</text></Badge>
 }
 
 export function NextJsBadge() {
-  return <Badge style={{ backgroundColor: "var(--chart-3)" }} variant="secondary"><TbBrandNextjs/>Next.js</Badge>
+  return <Badge style={{ backgroundColor: "var(--chart-3)" }} variant="secondary"><TbBrandNextjs className="text-white"/><text className="text-white">Next.js</text></Badge>
 }
