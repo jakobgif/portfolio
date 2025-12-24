@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { SiAltiumdesigner } from "react-icons/si";
+import { SiAltiumdesigner, SiTailwindcss } from "react-icons/si";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { TbBrandNextjs } from "react-icons/tb";
 
@@ -13,4 +13,8 @@ export function AltiumBadge() {
 
 export function NextJsBadge() {
   return <Badge style={{ backgroundColor: "var(--chart-3)" }} variant="secondary"><TbBrandNextjs className="text-white"/><text className="text-white">Next.js</text></Badge>
+}
+
+export function TailwindBadge() {
+  return <Badge style={{ backgroundColor: "var(--chart-4)" }} variant="secondary"><SiTailwindcss className="text-white"/><text className="text-white">Tailwind CSS</text></Badge>
 }
