@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { SiAltiumdesigner, SiTailwindcss } from "react-icons/si";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { TbBrandNextjs } from "react-icons/tb";
-import { FaGithub, FaRust } from "react-icons/fa";
+import { FaGithub, FaReact, FaRust } from "react-icons/fa";
 
 export function MixedSignalBadge() {
   return <Badge style={{ backgroundColor: "var(--chart-1)" }} variant="secondary"><MdOutlineDesignServices className="text-white"/><text className="text-white">Mixed Signal Design</text></Badge>
@@ -26,4 +26,8 @@ export function RustBadge() {
 
 export function GithubActionsBadge() {
   return <Badge style={{ backgroundColor: "var(--chart-6)" }} variant="secondary"><FaGithub className="text-white"/><text className="text-white">GitHub Actions</text></Badge>
+}
+
+export function ReactBadge() {
+  return <Badge style={{ backgroundColor: "var(--chart-7)" }} variant="secondary"><FaReact className="text-white"/><text className="text-white">React</text></Badge>
 }
