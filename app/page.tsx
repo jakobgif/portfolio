@@ -1,34 +1,24 @@
 "use client";
-import { H1, H2, H3, P, Blockquote,Muted, H4, Lead, Large } from '@/components/ui/typography'
+import { H1, H3, P, Blockquote,Muted, Large } from '@/components/ui/typography'
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MenuIcon, ChevronUp, Space } from "lucide-react"
+import { ChevronUp } from "lucide-react"
 import { useState, useEffect } from "react";
-import { AltiumBadge, MixedSignalBadge, NextJsBadge } from '@/components/ui/skill_badges';
+import { AltiumBadge, GithubActionsBadge, MixedSignalBadge, NextJsBadge, ReactBadge, RustBadge, TailwindBadge } from '@/components/ui/skill_badges';
 import Link from "next/link"
 import { FiExternalLink } from 'react-icons/fi';
-import { FaEnvelopeSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
-import { FaLocationDot, FaSquareInstagram } from 'react-icons/fa6';
+import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
 import { Header } from '@/components/header';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -121,10 +111,23 @@ export default function Home() {
 
         <section id="projects" className="pt-5 flex flex-col gap-5">
           <H3>Projects</H3>
-          <ProjectItem title="This website" description="Lorem ipsum" url="https://github.com/jakobgif" badges={[
+          <ProjectItem title="Portfolio Website" description={`I created this personal website using Next.js. This website is deployed on Vercel.
+          `} url="https://github.com/jakobgif/portfolio" badges={[
             <NextJsBadge/>,
+            <ReactBadge/>,
+            <TailwindBadge/>,
           ]}/>
-          <ProjectItem title="Hardware" description="Lorem ipsum" url="" badges={[
+          <ProjectItem title="Tick" description={`Tick is a Todo application build in Rust. 
+            The application consists of a backend that stores items in a database and a frontend that exposes CRUD features to the user. The frontend communicates with the backend via a REST API. The frontend it built using the Tauri framework.
+          `} url="https://github.com/jakobgif/tick" badges={[
+            <RustBadge/>,
+            <GithubActionsBadge/>,
+            <ReactBadge/>,
+            <TailwindBadge/>,
+          ]}/>
+          <ProjectItem title="Bachelor Thesis: Modernising the API 500-Series Specification" description={`The API 500 series is a modular interface commonly used in analog audio processing. Developed by Automated Processes Incorporated (API) in the 1970s, it remains popular to this day. However, since then digital components gained in significance in audio processing. This created a gap between the old interface and modern requirements.
+            This project aimed to explore the possibilities of expanding and modernising this specification. To achieve this, a concept for such a modernised platform was developed and constructed. Based on this concept, a new specification was proposed.
+          `} url="" badges={[
             <AltiumBadge/>,
             <MixedSignalBadge/>,
           ]}/>
@@ -134,11 +137,11 @@ export default function Home() {
 
         <section id="contact" className="pt-5 flex flex-col gap-5">
           <H3>Get to know me</H3>
-          <Link href={"/cv"} prefetch={true}><Button variant="link" className="p-0"><Large>CV</Large></Button></Link>
+          {/* <Link href={"/cv"} prefetch={true}><Button variant="link" className="p-0"><Large>CV</Large></Button></Link> */}
           <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot /><Large>Vienna, Austria</Large></div>
           <div className="flex flex-row flex-wrap gap-2">
-            <Link href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
-            <Link href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
+            <Link target="_blank" href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
+            <Link target="_blank" href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
             {/* <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={40}/></Link> */}
             {/* <FaSquareInstagram size={64}/> */}
           </div>
@@ -164,24 +167,56 @@ interface ProjectItemProps {
   url: string
   badges: React.ReactNode[]
 }
+
 function ProjectItem({ title, description, url, badges }: ProjectItemProps){
+  const isGithubUrl = (url: string) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname === "github.com" || parsed.hostname.endsWith(".github.com");
+    } catch {
+      return false;
+    }
+  };
+  
   return (
-    <Card>
+    <Card className="gap-0">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardAction>
-          <Badge variant="outline" asChild>
-            <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
-          </Badge>
-        </CardAction>
+        <div className="flex flex-row justify-between items-center">
+          <CardTitle>{title}</CardTitle>
+          <CardAction>
+            {url && (
+              isGithubUrl(url) ? (
+                <HoverCard>
+                  <HoverCardTrigger asChild>
+                    <Badge variant="outline" asChild>
+                      <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                    </Badge>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80">
+                    <img
+                      src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${url}`}
+                      loading="lazy"
+                      alt="GitHub repository preview"
+                      style={{ borderRadius: "4px" }}
+                    />
+                  </HoverCardContent>
+                </HoverCard>
+              ) : (
+                <Badge variant="outline" asChild>
+                  <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                </Badge>
+              )
+            )}
+          </CardAction>
+        </div>
       </CardHeader>
 
-      <CardContent>
-        <p>{description}</p>
+      <CardContent className="mt-2">
+        <p className="whitespace-pre-line">{description}</p>
       </CardContent>
 
       <CardFooter>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mt-6">
           {badges.map((badge, i) => (
             <div key={i}>{badge}</div>
           ))}
