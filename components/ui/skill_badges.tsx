@@ -1,11 +1,12 @@
 import { Badge } from "@/components/ui/badge"
-import { SiAltiumdesigner, SiTailwindcss } from "react-icons/si";
+import { SiAltiumdesigner, SiKicad, SiTailwindcss } from "react-icons/si";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { TbBrandNextjs } from "react-icons/tb";
 import { FaGithub, FaReact, FaRust } from "react-icons/fa";
+import { PiWaveSineBold, PiWaveSquareBold } from "react-icons/pi";
 
 export function MixedSignalBadge() {
-  return <Badge style={{ backgroundColor: "var(--chart-1)" }} variant="secondary"><MdOutlineDesignServices className="text-white"/><text className="text-white">Mixed Signal Design</text></Badge>
+  return <Badge style={{ backgroundColor: "var(--chart-1)" }} variant="secondary"><PiWaveSquareBold className="text-white"/><text className="text-white">Mixed Signal Design</text></Badge>
 }
 
 export function AltiumBadge() {
@@ -30,4 +31,12 @@ export function GithubActionsBadge() {
 
 export function ReactBadge() {
   return <Badge style={{ backgroundColor: "var(--chart-7)" }} variant="secondary"><FaReact className="text-white"/><text className="text-white">React</text></Badge>
+}
+
+export function KicadBadge() {
+  return <Badge style={{ backgroundColor: "var(--chart-8)" }} variant="secondary"><SiKicad className="text-white"/><text className="text-white">KiCad</text></Badge>
+}
+
+export function AnalogSignalBadge() {
+  return <Badge style={{ backgroundColor: "var(--chart-9)" }} variant="secondary"><PiWaveSineBold className="text-white"/><text className="text-white">Analog Design</text></Badge>
 }
