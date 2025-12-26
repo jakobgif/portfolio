@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: "Jakob Frenzel",
-  description: "Portfolio site of Jakob Frenzel",
+  description: "Portfolio website of Jakob Frenzel. I'm an Electronics and Embedded Systems Engineer based in Vienna, Austria.",
   icons: null,
 };
 
