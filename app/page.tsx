@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ChevronUp } from "lucide-react"
-import { useState, useEffect } from "react";
-import { AltiumBadge, GithubActionsBadge, MixedSignalBadge, NextJsBadge, ReactBadge, RustBadge, TailwindBadge } from '@/components/ui/skill_badges';
+import { useState, useEffect, ReactNode } from "react";
+import { AltiumBadge, AnalogSignalBadge, GithubActionsBadge, KicadBadge, MixedSignalBadge, NextJsBadge, ReactBadge, RustBadge, TailwindBadge } from '@/components/ui/skill_badges';
 import Link from "next/link"
 import { FiExternalLink } from 'react-icons/fi';
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
@@ -125,9 +125,15 @@ export default function Home() {
             <ReactBadge/>,
             <TailwindBadge/>,
           ]}/>
-          <ProjectItem title="Bachelor Thesis: Modernising the API 500-Series Specification" description={`The API 500 series is a modular interface commonly used in analog audio processing. Developed by Automated Processes Incorporated (API) in the 1970s, it remains popular to this day. However, since then digital components gained in significance in audio processing. This created a gap between the old interface and modern requirements.
+          <ProjectItem title="5-Band Constand-Q Audio Equalizer with Multiple-Feedback-Bandpass-Filters" description={`This 5-Band Equalizer is based on the GE 14 Equalizer designed by RANE Corporation in 1991. The Equalizer consists of five bands with fixed frequency and constant bandwidth. The gain of each channel can be adjusted between ±20dB. Furthermore, the EQ contains a discrete class-AB headphone amplifier.
+          `} badges={[
+            <KicadBadge/>,
+            <AnalogSignalBadge/>,
+          ]}>
+          </ProjectItem>
+          <ProjectItem title="Bachelor Project: Modernising the API 500-Series Specification" description={`The API 500 series is a modular interface commonly used in analog audio processing. Developed by Automated Processes Incorporated (API) in the 1970s, it remains popular to this day. However, since then digital components gained in significance in audio processing. This created a gap between the old interface and modern requirements.
             This project aimed to explore the possibilities of expanding and modernising this specification. To achieve this, a concept for such a modernised platform was developed and constructed. Based on this concept, a new specification was proposed.
-          `} url="" badges={[
+          `} badges={[
             <AltiumBadge/>,
             <MixedSignalBadge/>,
           ]}/>
@@ -164,11 +170,12 @@ export function Footer(){
 interface ProjectItemProps {
   title: string
   description: string
-  url: string
+  url?: string
   badges: React.ReactNode[]
+  children?: ReactNode;
 }
 
-function ProjectItem({ title, description, url, badges }: ProjectItemProps){
+function ProjectItem({ title, description, url, badges, children }: ProjectItemProps){
   const isGithubUrl = (url: string) => {
     try {
       const parsed = new URL(url);
@@ -211,8 +218,9 @@ function ProjectItem({ title, description, url, badges }: ProjectItemProps){
         </div>
       </CardHeader>
 
-      <CardContent className="mt-2">
+      <CardContent className="mt-2 flex flex-col gap-2">
         <p className="whitespace-pre-line">{description}</p>
+        {children}
       </CardContent>
 
       <CardFooter>
