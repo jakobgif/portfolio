@@ -2,9 +2,12 @@ import { Header } from "@/components/header";
 import { Footer } from "../page";
 import { H3, P } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
+import NotFound from "../not-found";
 
 export default function CV(){
   return (
+    <NotFound></NotFound>
+    /*
     <div>
       <Header path="CV"/>
 
@@ -26,5 +29,6 @@ export default function CV(){
       
       <Footer/>
     </div>
+    */
   )
 }

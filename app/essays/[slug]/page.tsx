@@ -1,3 +1,4 @@
+import NotFound from "@/app/not-found";
 import { Footer } from "@/app/page";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,8 @@ export default async function EssayPage({params,}: {params: Promise<{ slug: stri
   }
 
   return (
+    <NotFound></NotFound>
+    /* 
     <div>
       <Header path={essay.title}/>
 
@@ -42,5 +45,6 @@ export default async function EssayPage({params,}: {params: Promise<{ slug: stri
 
       <Footer/>
     </div>
+    */
   );
 }
