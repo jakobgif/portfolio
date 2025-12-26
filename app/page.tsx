@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ChevronUp } from "lucide-react"
+import { ChevronUp, MenuIcon, Moon, Sun } from "lucide-react"
 import { useState, useEffect, ReactNode } from "react";
 import { AltiumBadge, AnalogSignalBadge, GithubActionsBadge, KicadBadge, MixedSignalBadge, NextJsBadge, ReactBadge, RustBadge, TailwindBadge } from '@/components/ui/skill_badges';
 import Link from "next/link"
@@ -19,9 +19,12 @@ import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Header } from '@/components/header';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { useTheme } from 'next-themes';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
+  const [mobileSheetOpen, setMobileSheetOpen] = useState(false);
 
   //view scroll to top button when scolling more than 100px
   useEffect(() => {
@@ -39,6 +42,11 @@ export default function Home() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const { theme, setTheme } = useTheme()
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -66,8 +74,8 @@ export default function Home() {
         </div>
 
         {/*different ui for mobile*/}
-        {/* <div className="md:hidden">
-          <Sheet>
+        <div className="md:hidden">
+          <Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <MenuIcon />
@@ -75,25 +83,44 @@ export default function Home() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-auto min-w-[200px] my-6 flex flex-col justify-center items-center gap-4"
+              className="w-auto min-w-[200px] flex flex-col justify-center items-center gap-4"
+              onCloseAutoFocus={(e) => e.preventDefault()}
             >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute bottom-6"
+                onClick={() => toggleTheme()}
+              >
+                <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              </Button>
+
               <SheetTitle className="sr-only">Scroll to</SheetTitle>
               <nav className="flex flex-col gap-3">
-                <SheetClose asChild>
-                  <Button variant="ghost" onClick={() => scrollTo("projects")}>
-                    Projects
-                  </Button>
-                </SheetClose>
-                <Button variant="ghost" onClick={() => scrollTo("essays")}>
-                  Essays
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    scrollTo("projects");
+                    setMobileSheetOpen(false);
+                  }}
+                >
+                  Projects
                 </Button>
-                <Button variant="ghost" onClick={() => scrollTo("contact")}>
+
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    scrollTo("contact");
+                    setMobileSheetOpen(false);
+                  }}
+                >
                   Contact
                 </Button>
               </nav>
             </SheetContent>
           </Sheet>
-        </div> */}
+        </div>
       </Header>
 
       <div className="mx-[10vw] flex flex-col gap-5">
