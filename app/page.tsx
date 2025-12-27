@@ -171,7 +171,7 @@ export default function Home() {
         <section id="contact" className="pt-5 flex flex-col gap-5">
           <H3>Get to know me</H3>
           {/* <Link href={"/cv"} prefetch={true}><Button variant="link" className="p-0"><Large>CV</Large></Button></Link> */}
-          <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot /><Large>Vienna, Austria</Large></div>
+          <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot className="mb-0.5"/><Large>Vienna, Austria</Large></div>
           <div className="flex flex-row flex-wrap gap-2">
             <Link target="_blank" href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
             <Link target="_blank" href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
