@@ -42,11 +42,7 @@ export default function CV(){
             <H1 className="font-light">Jakob-Elias</H1>
             <H1 className="font-bold">Frenzel</H1>
           </div>
-          <div className="flex flex-row gap-2">
-            <H4>Electronics Engineer</H4>
-            <H4>&bull;</H4>
-            <H4>Mixed Signal</H4>
-          </div>
+          <H4 className="text-center">Electronics Engineer &bull; Mixed Signal</H4>
           <div className="flex flex-row items-center gap-1">
             <CiLocationOn strokeWidth={0.8} className="mb-0.5"/>
             <P>Vienna, Austria</P>
@@ -73,26 +69,28 @@ export default function CV(){
           <H3>Education</H3>
           <Separator className="mb-2"/>
           <div className="flex flex-col gap-4">
-            <div>
-              <div className="flex flex-row justify-between">
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-row justify-between items-center">
                 <P className="font-semibold">University of Applied Sciences Technikum Wien</P>
-                <Muted>Date</Muted>
+                <Muted>Sept. 2024 - Today</Muted>
               </div>
-              <P>Content</P>
+              <P className="ml-5">Master of Science, Embedded Systems</P>
             </div>
-            <div>
-              <div className="flex flex-row justify-between">
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-row justify-between items-center">
                 <P className="font-semibold">University of Applied Sciences Technikum Wien</P>
-                <Muted>Date</Muted>
+                <Muted>Sept. 2022 - June 2024</Muted>
               </div>
-              <P>Content</P>
+              <P className="ml-5">Bachelor of Science in Engineering, Electronic Engineering</P>
+              <Muted className="ml-5">Grade: Passed with distinction</Muted>
             </div>
-            <div>
-              <div className="flex flex-row justify-between">
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-row justify-between items-center">
                 <P className="font-semibold">HTL Rennweg, Department of Mechatronics</P>
-                <Muted>Date</Muted>
+                <Muted>Sept. 2016 - June 2021</Muted>
               </div>
-              <P>Content</P>
+              <P className="ml-5">Technical upper-level secondary school</P>
+              <Muted className="ml-5">Grade: Passed with distinction</Muted>
             </div>
           </div>
         </section>
@@ -100,13 +98,13 @@ export default function CV(){
         <section className="flex flex-col">
           <H3>Skills</H3>
           <Separator className="mb-2"/>
-          lorem
+          lorem ipsum
         </section>
 
         <section className="flex flex-col">
           <H3>Experience</H3>
           <Separator className="mb-2"/>
-          lorem
+          lorem ipsum
         </section>
       </div>
       <Footer/>
