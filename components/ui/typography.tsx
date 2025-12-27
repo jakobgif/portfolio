@@ -33,7 +33,7 @@ const H1: React.FC<Props> = ({className, children}) => {
 
   const H4: React.FC<Props> = ({className, children}) => {
     return (
-      <h4 className={`scroll-m-20 text-xl font-semibold tracking-tight ${className}`}>
+      <h4 className={`scroll-m-20 text-xl tracking-tight ${className}`}>
         {children}
       </h4>
     )
