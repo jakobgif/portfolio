@@ -220,21 +220,28 @@ function ProjectItem({ title, description, url, badges, children }: ProjectItemP
           <CardAction>
             {url && (
               isGithubUrl(url) ? (
-                <HoverCard>
-                  <HoverCardTrigger asChild>
-                    <Badge variant="outline" asChild>
-                      <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
-                    </Badge>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-80">
-                    <img
-                      src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${url}`}
-                      loading="lazy"
-                      alt="GitHub repository preview"
-                      style={{ borderRadius: "4px" }}
-                    />
-                  </HoverCardContent>
-                </HoverCard>
+                <>
+                  <Badge variant="outline" className="md:hidden" asChild>
+                    <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                  </Badge>
+                  <div className="hidden md:block">
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <Badge variant="outline" asChild>
+                          <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                        </Badge>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80">
+                        <img
+                          src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${url}`}
+                          loading="lazy"
+                          alt="GitHub repository preview"
+                          style={{ borderRadius: "4px" }}
+                        />
+                      </HoverCardContent>
+                    </HoverCard>
+                  </div>
+                </>
               ) : (
                 <Badge variant="outline" asChild>
                   <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
