@@ -39,24 +39,24 @@ export default function CV(){
       <div className="mx-[10vw] flex flex-col mt-10 gap-10">
         <div className="w-full flex flex-col items-center gap-2">
           <H1 className="font-light whitespace-nowrap">
-            Jakob-Elias <span className="font-bold">Frenzel</span>
+            Jakob-Elias <span className="font-bold" style={{ color: "var(--chart-8)" }}>Frenzel</span>
           </H1>
           <H4 className="text-center">Electronics Engineer &bull; Mixed Signal</H4>
           <div className="flex flex-row items-center gap-1">
-            <CiLocationOn strokeWidth={0.8} className="mb-0.5"/>
+            <CiLocationOn strokeWidth={0.8} className="mb-0.5" style={{ color: "var(--chart-8)" }}/>
             <P>Vienna, Austria</P>
           </div>
           <div className="flex flex-row gap-5 h-6 items-center">
             <Link target="_blank" href="https://github.com/jakobgif" prefetch={false}>
               <div className="flex flex-row items-center gap-1">
-                <FaGithub />
+                <FaGithub style={{ color: "var(--chart-8)" }} />
                 <P>jakobgif</P>
               </div>
             </Link>
             <Separator orientation="vertical" />
             <Link target="_blank" href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}>
               <div className="flex flex-row items-center gap-1">
-                <FaLinkedin />
+                <FaLinkedin style={{ color: "var(--chart-8)" }} />
                 <P>frenzel-jakob</P>
               </div>
             </Link>
@@ -65,7 +65,7 @@ export default function CV(){
         </div>
 
         <section className="flex flex-col">
-          <H3>Education</H3>
+          <H3 style={{ color: "var(--chart-8)" }}>Education</H3>
           <Separator className="mb-2"/>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
@@ -95,13 +95,13 @@ export default function CV(){
         </section>
 
         <section className="flex flex-col">
-          <H3>Skills</H3>
+          <H3 style={{ color: "var(--chart-8)" }}>Skills</H3>
           <Separator className="mb-2"/>
           lorem ipsum
         </section>
 
         <section className="flex flex-col">
-          <H3>Experience</H3>
+          <H3 style={{ color: "var(--chart-8)" }}>Experience</H3>
           <Separator className="mb-2"/>
           lorem ipsum
         </section>
