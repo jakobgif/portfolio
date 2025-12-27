@@ -38,10 +38,9 @@ export default function CV(){
 
       <div className="mx-[10vw] flex flex-col mt-10 gap-10">
         <div className="w-full flex flex-col items-center gap-2">
-          <div className="flex flex-row gap-2">
-            <H1 className="font-light">Jakob-Elias</H1>
-            <H1 className="font-bold">Frenzel</H1>
-          </div>
+          <H1 className="font-light whitespace-nowrap">
+            Jakob-Elias <span className="font-bold">Frenzel</span>
+          </H1>
           <H4 className="text-center">Electronics Engineer &bull; Mixed Signal</H4>
           <div className="flex flex-row items-center gap-1">
             <CiLocationOn strokeWidth={0.8} className="mb-0.5"/>
@@ -70,27 +69,27 @@ export default function CV(){
           <Separator className="mb-2"/>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
-              <div className="flex flex-row justify-between items-center">
-                <P className="font-semibold">University of Applied Sciences Technikum Wien</P>
-                <Muted>Sept. 2024 - Today</Muted>
+              <div className="flex flex-col flex-col-reverse md:flex-row justify-between md:items-center">
+                <P className="font-semibold self-start md:self-auto">University of Applied Sciences Technikum Wien</P>
+                <Muted className="whitespace-nowrap self-end md:self-auto">Sept. 2024 - Today</Muted>
               </div>
-              <P className="ml-5">Master of Science, Embedded Systems</P>
+              <P className="ml-2 md:ml-5">Master of Science, Embedded Systems</P>
             </div>
             <div className="flex flex-col gap-1">
-              <div className="flex flex-row justify-between items-center">
-                <P className="font-semibold">University of Applied Sciences Technikum Wien</P>
-                <Muted>Sept. 2022 - June 2024</Muted>
+              <div className="flex flex-col flex-col-reverse md:flex-row justify-between md:items-center">
+                <P className="font-semibold self-start md:self-auto">University of Applied Sciences Technikum Wien</P>
+                <Muted className="whitespace-nowrap self-end md:self-auto">Sept. 2022 - June 2024</Muted>
               </div>
-              <P className="ml-5">Bachelor of Science in Engineering, Electronic Engineering</P>
-              <Muted className="ml-5">Grade: Passed with distinction</Muted>
+              <P className="ml-2 md:ml-5">Bachelor of Science in Engineering, Electronic Engineering</P>
+              <Muted className="ml-2 md:ml-5">Grade: Passed with distinction</Muted>
             </div>
             <div className="flex flex-col gap-1">
-              <div className="flex flex-row justify-between items-center">
-                <P className="font-semibold">HTL Rennweg, Department of Mechatronics</P>
-                <Muted>Sept. 2016 - June 2021</Muted>
+              <div className="flex flex-col flex-col-reverse md:flex-row justify-between md:items-center">
+                <P className="font-semibold self-start md:self-auto">HTL Rennweg, Department of Mechatronics</P>
+                <Muted className="whitespace-nowrap self-end md:self-auto">Sept. 2016 - June 2021</Muted>
               </div>
-              <P className="ml-5">Technical upper-level secondary school</P>
-              <Muted className="ml-5">Grade: Passed with distinction</Muted>
+              <P className="ml-2 md:ml-5">Technical upper-level secondary school</P>
+              <Muted className="ml-2 md:ml-5">Grade: Passed with distinction</Muted>
             </div>
           </div>
         </section>
