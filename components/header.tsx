@@ -52,7 +52,7 @@ export function Header({ children, path = "/" }: { children?: React.ReactNode; p
       <Link href="/"><H2>Jakob Frenzel</H2></Link>
       <div className="flex flex-row items-center">
         {children || defaultNavigation}
-        <Button variant="outline" size="icon" onClick={() => toggleTheme()} className="ml-10 hidden md:inline-flex">
+        <Button variant="outline" size="icon" onClick={() => toggleTheme()} className="ml-10 hidden md:inline-flex" aria-label="toggle between light and dark mode">
           <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
         </Button>
