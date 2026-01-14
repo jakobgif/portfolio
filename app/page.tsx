@@ -137,15 +137,19 @@ export default function Home() {
 
         <section id="projects" className="pt-5 flex flex-col gap-5">
           <H3>Projects</H3>
-          <ProjectItem title="Portfolio Website" description={`I created this personal website using Next.js. This website is deployed on Vercel.
-          `} url="https://github.com/jakobgif/portfolio" badges={[
+          <ProjectItem title="Portfolio Website" description={`I created this personal website using Next.js. This website is deployed on Vercel.`}
+            url="https://github.com/jakobgif/portfolio"
+            linkText="View on GitHub"
+            badges={[
             <NextJsBadge/>,
             <ReactBadge/>,
             <TailwindBadge/>,
           ]}/>
-          <ProjectItem title="Tick" description={`Tick is a Todo application build in Rust. 
-            The application consists of a backend that stores items in a database and a frontend that exposes CRUD features to the user. The frontend communicates with the backend via a REST API. The frontend it built using the Tauri framework.
-          `} url="https://github.com/jakobgif/tick" badges={[
+          <ProjectItem title="Tick" description={`Tick is a Todo application build in Rust.
+            The application consists of a backend that stores items in a database and a frontend that exposes CRUD features to the user. The frontend communicates with the backend via a REST API. The frontend it built using the Tauri framework.`}
+            url="https://github.com/jakobgif/tick"
+            linkText="View on GitHub"
+            badges={[
             <RustBadge/>,
             <GithubActionsBadge/>,
             <ReactBadge/>,
@@ -199,9 +203,10 @@ interface ProjectItemProps {
   url?: string
   badges: React.ReactNode[]
   children?: ReactNode;
+  linkText?: string
 }
 
-function ProjectItem({ title, description, url, badges, children }: ProjectItemProps){
+function ProjectItem({ title, description, url, badges, children, linkText="Learn more" }: ProjectItemProps){
   return (
     <Card className="gap-0">
       <CardHeader>
@@ -210,7 +215,7 @@ function ProjectItem({ title, description, url, badges, children }: ProjectItemP
           <CardAction>
             {url && (
               <Badge variant="outline" asChild>
-                <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                <Link target="_blank" href={url} prefetch={false}><FiExternalLink />{linkText}</Link>
               </Badge>
             )}
           </CardAction>
