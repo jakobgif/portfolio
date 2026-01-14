@@ -18,7 +18,6 @@ import { FiExternalLink } from 'react-icons/fi';
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Header } from '@/components/header';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from 'next-themes';
 
@@ -203,15 +202,6 @@ interface ProjectItemProps {
 }
 
 function ProjectItem({ title, description, url, badges, children }: ProjectItemProps){
-  const isGithubUrl = (url: string) => {
-    try {
-      const parsed = new URL(url);
-      return parsed.hostname === "github.com" || parsed.hostname.endsWith(".github.com");
-    } catch {
-      return false;
-    }
-  };
-  
   return (
     <Card className="gap-0">
       <CardHeader>
@@ -219,34 +209,9 @@ function ProjectItem({ title, description, url, badges, children }: ProjectItemP
           <CardTitle>{title}</CardTitle>
           <CardAction>
             {url && (
-              isGithubUrl(url) ? (
-                <>
-                  <Badge variant="outline" className="md:hidden" asChild>
-                    <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
-                  </Badge>
-                  <div className="hidden md:block">
-                    <HoverCard>
-                      <HoverCardTrigger asChild>
-                        <Badge variant="outline" asChild>
-                          <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
-                        </Badge>
-                      </HoverCardTrigger>
-                      <HoverCardContent className="w-80">
-                        <img
-                          src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${url}`}
-                          loading="lazy"
-                          alt="GitHub repository preview"
-                          style={{ borderRadius: "4px" }}
-                        />
-                      </HoverCardContent>
-                    </HoverCard>
-                  </div>
-                </>
-              ) : (
-                <Badge variant="outline" asChild>
-                  <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
-                </Badge>
-              )
+              <Badge variant="outline" asChild>
+                <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+              </Badge>
             )}
           </CardAction>
         </div>
