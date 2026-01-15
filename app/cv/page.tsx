@@ -1,5 +1,5 @@
 import { Header } from "@/components/header";
-import { Footer } from "../page";
+import { Footer } from '@/components/footer';
 import { H3, P } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
 import NotFound from "../not-found";
