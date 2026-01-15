@@ -20,6 +20,7 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { Header } from '@/components/header';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from 'next-themes';
+import { Footer } from '@/components/footer';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -184,15 +185,6 @@ export default function Home() {
         </section>
       </div>
       <Footer/>
-    </div>
-  )
-}
-
-export function Footer(){
-  return (
-    <div className="mx-[10vw] pt-20 pb-100 flex flex-col gap-4 items-center">
-      <Blockquote className="text-center">per aspera ad astra</Blockquote>
-      <Muted className="text-center">Copyright © 2025</Muted>
     </div>
   )
 }
