@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { Footer } from "@/app/page";
+import { Footer } from '@/components/footer';
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
