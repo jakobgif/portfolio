@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface Props {
     className?: string;
-    children: ReactNode;
+    children: string;
     style?: React.CSSProperties;
 }
 
