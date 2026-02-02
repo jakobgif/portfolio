@@ -18,9 +18,9 @@ import { FiExternalLink } from 'react-icons/fi';
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Header } from '@/components/header';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from 'next-themes';
-import { Footer } from '@/components/footer';
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <div>
       {showTop && (
-        <Button className="fixed bottom-6 right-6 shadow-lg md:m-10 m-0" variant="ghost" size="icon" onClick={scrollToTop} aria-label="Scroll to top">
+        <Button className="fixed bottom-6 right-6 shadow-lg md:m-10 m-0" variant="ghost" size="icon" onClick={scrollToTop}>
           <ChevronUp />
         </Button>
       )}
@@ -77,7 +77,7 @@ export default function Home() {
         <div className="md:hidden">
           <Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="open sheet menu">
+              <Button variant="ghost" size="icon">
                 <MenuIcon />
               </Button>
             </SheetTrigger>
@@ -91,7 +91,6 @@ export default function Home() {
                 size="icon"
                 className="absolute bottom-6"
                 onClick={() => toggleTheme()}
-                aria-label="Toggle between light and dark mode"
               >
                 <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
                 <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
@@ -124,7 +123,7 @@ export default function Home() {
         </div>
       </Header>
 
-      <main className="mx-[10vw] flex flex-col gap-5">
+      <div className="mx-[10vw] flex flex-col gap-5">
         <section id="about" className="mt-30 flex flex-col">
           <div className="flex">
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
@@ -139,19 +138,15 @@ export default function Home() {
 
         <section id="projects" className="pt-5 flex flex-col gap-5">
           <H3>Projects</H3>
-          <ProjectItem title="Portfolio Website" description={`I created this personal website using Next.js. This website is deployed on Vercel.`}
-            url="https://github.com/jakobgif/portfolio"
-            linkText="View on GitHub"
-            badges={[
+          <ProjectItem title="Portfolio Website" description={`I created this personal website using Next.js. This website is deployed on Vercel.
+          `} url="https://github.com/jakobgif/portfolio" badges={[
             <NextJsBadge/>,
             <ReactBadge/>,
             <TailwindBadge/>,
           ]}/>
-          <ProjectItem title="Tick" description={`Tick is a Todo application build in Rust.
-            The application consists of a backend that stores items in a database and a frontend that exposes CRUD features to the user. The frontend communicates with the backend via a REST API. The frontend it built using the Tauri framework.`}
-            url="https://github.com/jakobgif/tick"
-            linkText="View on GitHub"
-            badges={[
+          <ProjectItem title="Tick" description={`Tick is a Todo application build in Rust. 
+            The application consists of a backend that stores items in a database and a frontend that exposes CRUD features to the user. The frontend communicates with the backend via a REST API. The frontend it built using the Tauri framework.
+          `} url="https://github.com/jakobgif/tick" badges={[
             <RustBadge/>,
             <GithubActionsBadge/>,
             <ReactBadge/>,
@@ -178,14 +173,23 @@ export default function Home() {
           {/* <Link href={"/cv"} prefetch={true}><Button variant="link" className="p-0"><Large>CV</Large></Button></Link> */}
           <div className="flex flex-row items-center gap-1.5 ml-0.5"><FaLocationDot className="mb-0.5"/><Large>Vienna, Austria</Large></div>
           <div className="flex flex-row flex-wrap gap-2">
-            <Link target="_blank" href="https://github.com/jakobgif" prefetch={false} aria-label="GitHub profile of Jakob Frenzel"><FaGithubSquare size={40}/></Link>
-            <Link target="_blank" href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false} aria-label="LinkedIn profile of Jakob Frenzel"><FaLinkedin size={40}/></Link>
+            <Link target="_blank" href="https://github.com/jakobgif" prefetch={false}><FaGithubSquare size={40}/></Link>
+            <Link target="_blank" href="https://www.linkedin.com/in/frenzel-jakob" prefetch={false}><FaLinkedin size={40}/></Link>
             {/* <Link href="mailto:contact@jakobfrenzel.com" prefetch={false}><FaEnvelopeSquare size={40}/></Link> */}
             {/* <FaSquareInstagram size={64}/> */}
           </div>
         </section>
-      </main>
+      </div>
       <Footer/>
+    </div>
+  )
+}
+
+export function Footer(){
+  return (
+    <div className="mx-[10vw] pt-20 pb-100 flex flex-col gap-4 items-center">
+      <Blockquote className="text-center">per aspera ad astra</Blockquote>
+      <Muted className="text-center">Copyright © 2025</Muted>
     </div>
   )
 }
@@ -196,10 +200,18 @@ interface ProjectItemProps {
   url?: string
   badges: React.ReactNode[]
   children?: ReactNode;
-  linkText?: string
 }
 
-function ProjectItem({ title, description, url, badges, children, linkText="Learn more" }: ProjectItemProps){
+function ProjectItem({ title, description, url, badges, children }: ProjectItemProps){
+  const isGithubUrl = (url: string) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname === "github.com" || parsed.hostname.endsWith(".github.com");
+    } catch {
+      return false;
+    }
+  };
+  
   return (
     <Card className="gap-0">
       <CardHeader>
@@ -207,9 +219,34 @@ function ProjectItem({ title, description, url, badges, children, linkText="Lear
           <CardTitle>{title}</CardTitle>
           <CardAction>
             {url && (
-              <Badge variant="outline" asChild>
-                <Link target="_blank" href={url} prefetch={false}><FiExternalLink />{linkText}</Link>
-              </Badge>
+              isGithubUrl(url) ? (
+                <>
+                  <Badge variant="outline" className="md:hidden" asChild>
+                    <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                  </Badge>
+                  <div className="hidden md:block">
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <Badge variant="outline" asChild>
+                          <Link target="_blank" href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                        </Badge>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80">
+                        <img
+                          src={`https://webapi.johnversus.dev/api/generateGithubSocial?repo_url=${url}`}
+                          loading="lazy"
+                          alt="GitHub repository preview"
+                          style={{ borderRadius: "4px" }}
+                        />
+                      </HoverCardContent>
+                    </HoverCard>
+                  </div>
+                </>
+              ) : (
+                <Badge variant="outline" asChild>
+                  <Link href={url} prefetch={false}><FiExternalLink />Learn more</Link>
+                </Badge>
+              )
             )}
           </CardAction>
         </div>
