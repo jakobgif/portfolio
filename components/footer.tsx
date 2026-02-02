@@ -25,9 +25,9 @@ function AskAi(){
     <div className="flex-col">
       <p className="pb-1 text-center">Request an AI summary about me.</p>
       <div className="flex flex-row justify-center gap-1">
-        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://chat.openai.com/?q=")}><SiOpenai className="size-7"/></Button>
-        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://claude.ai/new?q=")}><SiClaude className="size-7"/></Button>
-        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://grok.com/?q=")}><Image src="/grok.svg" width={28} height={28} alt="Grok" className="dark:invert"/></Button>
+        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://chat.openai.com/?q=")} aria-label="Ask ChatGPT about me"><SiOpenai className="size-7"/></Button>
+        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://claude.ai/new?q=")} aria-label="Ask Claude about me"><SiClaude className="size-7"/></Button>
+        <Button variant="ghost" className="rounded-full" size="icon-lg" onClick={() => queryAi("https://grok.com/?q=")} aria-label="Ask Grok about me"><Image src="/grok.svg" width={28} height={28} alt="Grok" className="dark:invert"/></Button>
       </div>
     </div>
   )

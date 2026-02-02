@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <div>
       {showTop && (
-        <Button className="fixed bottom-6 right-6 shadow-lg md:m-10 m-0" variant="ghost" size="icon" onClick={scrollToTop}>
+        <Button className="fixed bottom-6 right-6 shadow-lg md:m-10 m-0" variant="ghost" size="icon" onClick={scrollToTop} aria-label="Scroll to top">
           <ChevronUp />
         </Button>
       )}
@@ -91,6 +91,7 @@ export default function Home() {
                 size="icon"
                 className="absolute bottom-6"
                 onClick={() => toggleTheme()}
+                aria-label="Toggle between light and dark mode"
               >
                 <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
                 <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
@@ -123,7 +124,7 @@ export default function Home() {
         </div>
       </Header>
 
-      <div className="mx-[10vw] flex flex-col gap-5">
+      <main className="mx-[10vw] flex flex-col gap-5">
         <section id="about" className="mt-30 flex flex-col">
           <div className="flex">
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
@@ -183,7 +184,7 @@ export default function Home() {
             {/* <FaSquareInstagram size={64}/> */}
           </div>
         </section>
-      </div>
+      </main>
       <Footer/>
     </div>
   )
