@@ -8,6 +8,18 @@ export const metadata = {
   title: "Jakob Frenzel",
   description: "Portfolio website of Jakob Frenzel. I'm an Electronics and Embedded Systems Engineer based in Vienna, Austria.",
   icons: null,
+  openGraph: {
+    title: "Jakob F. | Portfolio",
+    description: "Portfolio website of Jakob Frenzel",
+    url: "https://jakobfrenzel.com",
+    siteName: "Jakob F. | Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jakob F. | Portfolio",
+    description: "Portfolio website of Jakob Frenzel",
+  },
 };
 
 const geistSans = Geist({
