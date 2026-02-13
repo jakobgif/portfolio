@@ -57,21 +57,6 @@ export default async function Image() {
             objectFit: "cover",
           }}
         />
-        
-        <p
-          style={{
-            fontSize: 32,
-            color: FOREGROUND,
-            position: "absolute",
-            top: 24,
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            margin: 0,
-          }}
-        >
-          Portfolio
-        </p>
 
         <h1
           style={{
@@ -80,7 +65,7 @@ export default async function Image() {
             letterSpacing: "-0.025em",
             color: FOREGROUND,
             position: "absolute",
-            top: 190,
+            top: 170,
             width: "100%",
             display: "flex",
             justifyContent: "center",
@@ -95,7 +80,7 @@ export default async function Image() {
             fontSize: 32,
             color: FOREGROUND,
             position: "absolute",
-            top: 350,
+            top: 330,
             width: "100%",
             display: "flex",
             justifyContent: "center",
