@@ -34,9 +34,7 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
       <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
-        <head />
         <body className="font-sans">
           <ThemeProvider
             attribute="class"
@@ -50,6 +48,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SpeedInsights/>
         </body>
       </html>
-    </>
   )
 }
