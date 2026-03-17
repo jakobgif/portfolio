@@ -8,7 +8,7 @@ export function Footer(){
     <div className="mx-[10vw] pt-20 pb-100 flex flex-col items-center">
       <AskAi/>
       <Blockquote className="text-center pt-6">per aspera ad astra</Blockquote>
-      <Muted className="text-center pt-1">Copyright © 2025</Muted>
+      <Muted className="text-center pt-1">Copyright © 2026</Muted>
     </div>
   )
 }
