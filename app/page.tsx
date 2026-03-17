@@ -130,7 +130,7 @@ export default function Home() {
             <H1 className="text-rainbow">Hi,&nbsp;</H1>
             <H1>I am Jakob</H1>
           </div>
-          <P className="max-w-[800px] mt-6">
+          <P className="max-w-[800px] mt-6 ml-[2px]">
             I'm an Electronics and Embedded Systems Engineer based in Vienna, Austria. My primary focus lies on hardware design and development.
             In addition to my experience in hardware, I am also highly proficient in firmware and software development.
             This allows me to work seamlessly across the full scope of embedded systems.
