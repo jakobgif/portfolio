@@ -7,11 +7,13 @@ import React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 export function Header({ children, path = "/", titleVisibility = "visible" }: { children?: React.ReactNode; path?: string; titleVisibility?: "visible" | "hidden"; }){
   const { theme, setTheme } = useTheme()
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+    trackEvent("theme_toggle");
   };
 
   const segments = path.split("/").filter(Boolean);
