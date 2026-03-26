@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 export const metadata = {
   title: "Jakob Frenzel",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ThemeProvider>
           <Analytics />
           <SpeedInsights/>
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
         </body>
       </html>
   )
