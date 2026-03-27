@@ -2,8 +2,3 @@
 
 ### jakobfrenzel.com
 This is my personal portfolio website.
-
-#### Run development server
-```bash
-npm run dev
-```
